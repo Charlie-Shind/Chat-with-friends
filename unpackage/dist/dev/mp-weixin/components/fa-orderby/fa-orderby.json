@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "fa-dropdown": "/components/fa-dropdown/fa-dropdown",
+    "u-dropdown-item": "/uview-ui/components/u-dropdown-item/u-dropdown-item"
+  }
+}

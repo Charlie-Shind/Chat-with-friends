@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "栏目",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "fa-navbar": "/components/fa-navbar/fa-navbar",
+    "u-form": "/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uview-ui/components/u-form-item/u-form-item",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "fa-tabbar": "/components/fa-tabbar/fa-tabbar",
+    "fa-selects": "/pages/publish/components/fa-selects/fa-selects"
+  }
+}

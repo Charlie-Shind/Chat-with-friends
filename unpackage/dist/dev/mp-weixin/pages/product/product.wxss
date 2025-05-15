@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+page {
+  background-color: #f4f6f8;
+}
+.product-item {
+  width: 50%;
+  position: relative;
+}
+.product-item .title {
+  position: absolute;
+  font-size: 20rpx;
+  bottom: 20rpx;
+  background: #000;
+  width: auto;
+  max-width: 50%;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+  color: #f8f8f8;
+  opacity: 0.7;
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-align: center;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+}
+.product-item:nth-child(2n+1) {
+  padding-right: 15rpx;
+}
+.product-item:nth-child(2n) {
+  padding-left: 15rpx;
+}
+.product-item:not(:last-child) {
+  margin-bottom: 30rpx;
+}

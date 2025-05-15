@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "详情",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "fa-navbar": "/components/fa-navbar/fa-navbar",
+    "u-parse": "/uview-ui/components/u-parse/u-parse",
+    "u-table": "/uview-ui/components/u-table/u-table",
+    "u-tr": "/uview-ui/components/u-tr/u-tr",
+    "u-th": "/uview-ui/components/u-th/u-th",
+    "u-td": "/uview-ui/components/u-td/u-td",
+    "u-alert-tips": "/uview-ui/components/u-alert-tips/u-alert-tips",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "fa-tabbar": "/components/fa-tabbar/fa-tabbar"
+  }
+}

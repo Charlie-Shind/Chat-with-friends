@@ -1,0 +1,93 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/my",
+    "pages/article/article",
+    "pages/product/product",
+    "pages/webview/webview",
+    "pages/article/detail",
+    "pages/product/detail",
+    "pages/user/user",
+    "pages/tag/tag",
+    "pages/search/search",
+    "uview-ui/components/u-avatar-cropper/u-avatar-cropper",
+    "pages/page/detail"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/publish",
+      "pages": [
+        "channel",
+        "archives",
+        "diyform"
+      ]
+    },
+    {
+      "root": "pages/signin",
+      "pages": [
+        "signin",
+        "logs",
+        "ranking"
+      ]
+    },
+    {
+      "root": "pages/special",
+      "pages": [
+        "special",
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/diyform",
+      "pages": [
+        "lists",
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/my",
+      "pages": [
+        "comment",
+        "order",
+        "article",
+        "collection",
+        "bind",
+        "profile",
+        "aboutus",
+        "agreement",
+        "vip",
+        "moneylog",
+        "scorelog"
+      ]
+    },
+    {
+      "root": "pages/login",
+      "pages": [
+        "login",
+        "mobilelogin",
+        "auth",
+        "openid",
+        "forgetpwd",
+        "register"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "CMS",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "pageOrientation": "portrait"
+  },
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "__APP__"
+      ]
+    }
+  },
+  "permission": {},
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
+}

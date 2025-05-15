@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+page {
+  background-color: #f4f6f8;
+}
+.form-list {
+  width: 100%;
+  box-shadow: 0 0 5rpx rgba(0, 134, 243, 0.1);
+  border-radius: 5rpx;
+}
+.form-list .item {
+  margin-bottom: 2rpx;
+}
+.form-list .item .images {
+  width: 30%;
+  height: 200rpx;
+  padding-bottom: 30rpx;
+}
+.form-list .item .images:nth-child(3n-1) {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.form-list .item .image {
+  width: 100%;
+  height: 300rpx;
+  padding-bottom: 30rpx;
+}
+.form-list .item .image image {
+  border-radius: 10rpx;
+  width: 100%;
+  height: 100%;
+}

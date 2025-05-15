@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.fa-file {
+  background-color: #f4f5f6;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+.fa-file .select-color {
+  color: #606266;
+}
+.fa-file text {
+  font-size: 40rpx;
+}
+.fa-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.fa-flex .u-delete-icon {
+  background-color: #fa3534;
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+}

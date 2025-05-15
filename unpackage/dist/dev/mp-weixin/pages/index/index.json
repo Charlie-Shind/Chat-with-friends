@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "fa-navbar": "/components/fa-navbar/fa-navbar",
+    "fa-search": "/components/fa-search/fa-search",
+    "fa-orderby-select": "/components/fa-orderby-select/fa-orderby-select",
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "fa-article-item": "/components/fa-article-item/fa-article-item",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
+    "fa-tabbar": "/components/fa-tabbar/fa-tabbar"
+  }
+}

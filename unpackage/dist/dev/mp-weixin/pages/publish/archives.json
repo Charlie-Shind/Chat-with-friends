@@ -1,0 +1,27 @@
+{
+  "navigationBarTitleText": "发布文章",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "fa-navbar": "/components/fa-navbar/fa-navbar",
+    "u-form": "/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uview-ui/components/u-form-item/u-form-item",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "fa-tags": "/pages/publish/components/fa-tags/fa-tags",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-picker": "/uview-ui/components/u-picker/u-picker",
+    "u-calendar": "/uview-ui/components/u-calendar/u-calendar",
+    "fa-tabbar": "/components/fa-tabbar/fa-tabbar",
+    "fa-array": "/pages/publish/components/fa-array/fa-array",
+    "fa-array-download": "/pages/publish/components/fa-array-download/fa-array-download",
+    "fa-check-radio": "/pages/publish/components/fa-check-radio/fa-check-radio",
+    "fa-citys": "/pages/publish/components/fa-citys/fa-citys",
+    "fa-editor": "/pages/publish/components/fa-editor/fa-editor",
+    "fa-file": "/pages/publish/components/fa-file/fa-file",
+    "fa-selectpages": "/pages/publish/components/fa-selectpages/fa-selectpages",
+    "fa-selects": "/pages/publish/components/fa-selects/fa-selects",
+    "fa-switch": "/pages/publish/components/fa-switch/fa-switch",
+    "fa-upload-file": "/pages/publish/components/fa-upload-file/fa-upload-file",
+    "fa-upload-image": "/pages/publish/components/fa-upload-image/fa-upload-image"
+  }
+}

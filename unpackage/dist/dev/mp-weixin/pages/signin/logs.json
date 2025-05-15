@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "签到日志",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "fa-navbar": "/components/fa-navbar/fa-navbar",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
+    "fa-tabbar": "/components/fa-tabbar/fa-tabbar"
+  }
+}

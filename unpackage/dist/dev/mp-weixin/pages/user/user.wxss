@@ -1,0 +1,118 @@
+
+page {
+	background-color: #ffffff;
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.home.data-v-80842834 {
+  position: relative;
+}
+.home .userinfo.data-v-80842834 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 0;
+  z-index: 100;
+  height: 310rpx;
+  color: #ffffff;
+}
+.home .corrugated.data-v-80842834 {
+  bottom: -2rpx;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  z-index: 0;
+}
+.home .corrugated .wave-item.data-v-80842834 {
+  position: absolute;
+  width: 200%;
+  left: 0;
+  height: 200rpx;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+.home .corrugated .wave-top.data-v-80842834 {
+  opacity: 0.5;
+  -webkit-animation: wave-animation 3s;
+          animation: wave-animation 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  background-size: 50% 60rpx;
+  z-index: 15;
+}
+.home .corrugated .wave-middle.data-v-80842834 {
+  opacity: 0.75;
+  -webkit-animation: wavemove-data-v-80842834 10s linear infinite;
+          animation: wavemove-data-v-80842834 10s linear infinite;
+  background-size: 50% 80rpx;
+  z-index: 10;
+}
+.home .corrugated .wave-bottom.data-v-80842834 {
+  -webkit-animation: wavemove-data-v-80842834 15s linear infinite;
+          animation: wavemove-data-v-80842834 15s linear infinite;
+  background-size: 50% 45rpx;
+  z-index: 5;
+}
+.comment.data-v-80842834 {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+.comment .left image.data-v-80842834 {
+  width: 180rpx;
+  height: 130rpx;
+  background-color: #f2f2f2;
+  border-radius: 10rpx;
+}
+.comment .right.data-v-80842834 {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+}
+.comment .right .content.data-v-80842834 {
+  margin-bottom: 10rpx;
+}
+.comment .right .reply-box.data-v-80842834 {
+  background-color: #f2f2f2;
+  border-radius: 12rpx;
+}
+.comment .right .reply-box .item.data-v-80842834 {
+  padding: 20rpx;
+  word-break: break-word;
+}
+@-webkit-keyframes wavemove-data-v-80842834 {
+0% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+            transform: translateX(0) translateZ(0) scaleY(1);
+}
+50% {
+    -webkit-transform: translateX(-25%) translateZ(0) scaleY(0.55);
+            transform: translateX(-25%) translateZ(0) scaleY(0.55);
+}
+100% {
+    -webkit-transform: translateX(-50%) translateZ(0) scaleY(1);
+            transform: translateX(-50%) translateZ(0) scaleY(1);
+}
+}
+@keyframes wavemove-data-v-80842834 {
+0% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+            transform: translateX(0) translateZ(0) scaleY(1);
+}
+50% {
+    -webkit-transform: translateX(-25%) translateZ(0) scaleY(0.55);
+            transform: translateX(-25%) translateZ(0) scaleY(0.55);
+}
+100% {
+    -webkit-transform: translateX(-50%) translateZ(0) scaleY(1);
+            transform: translateX(-50%) translateZ(0) scaleY(1);
+}
+}

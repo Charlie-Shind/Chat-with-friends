@@ -1,0 +1,1 @@
+<view><u-switch vue-id="1faecbae-1" active-color="{{theme.bgColor}}" value="{{switchCheck}}" data-event-opts="{{[['^change',[['switchChange']]],['^input',[['__set_model',['','switchCheck','$event',[]]]]]]}}" bind:change="__e" bind:input="__e" bind:__l="__l"></u-switch></view>

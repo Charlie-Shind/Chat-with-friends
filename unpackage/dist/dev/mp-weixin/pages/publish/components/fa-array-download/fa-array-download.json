@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "fa-upload-file": "/pages/publish/components/fa-upload-file/fa-upload-file"
+  }
+}
