@@ -177,7 +177,7 @@ text {
 	align-items: center;
 }
 
-// 首页样式
+// 所有样式
 .u-index-container {
 	background: url('/static/image/bg.png') no-repeat;
 	background-size: 100% auto;
@@ -193,7 +193,6 @@ uni-swiper {
 	border-radius: 22rpx;
 }
 
-	
 uni-swiper .uni-swiper-wrapper {
 	border-radius: 22rpx;
 }
@@ -206,7 +205,7 @@ uni-swiper .uni-swiper-wrapper {
 .u-community-status ul {
 	list-style: none;
 	padding: 0;
-	margin-top: 35rpx;
+	margin: 25rpx 0;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -214,6 +213,7 @@ uni-swiper .uni-swiper-wrapper {
 
 .u-community-status ul li {
 	width: 115rpx;
+	height: 100rpx;
 	display: inline-block;
 	padding: 20rpx;
 	position: relative;
@@ -235,8 +235,8 @@ uni-swiper .uni-swiper-wrapper {
 }
 
 @font-face {
-	font-family: "din";
-	src: url('https://www.oezq.net/h5/fonts/din.38e02587.ttf')
+	font-family: 'din';
+	src: url('https://www.oezq.net/h5/fonts/din.38e02587.ttf');
 }
 
 .u-community-num {
@@ -245,4 +245,108 @@ uni-swiper .uni-swiper-wrapper {
 	line-height: 64rpx;
 	z-index: 2;
 	position: relative;
+}
+
+.u-singleness-news {
+	padding: 15rpx 30rpx;
+}
+
+.u-singleness-box {
+	display: flex;
+	padding: 15rpx 20rpx;
+	background: #fff;
+	border-radius: 20rpx;
+}
+
+.u-singleness-box .subject {
+	margin-top: 10rpx;
+}
+
+.u-singleness-box .subject span {
+	padding: 2rpx 9rpx;
+	margin-left: 2rpx;
+	border-radius: 12rpx 12rpx 4rpx 12rpx;
+	color: #fff;
+	font-size: 24rpx;
+}
+
+.u-bg_navs {
+	background: linear-gradient(148deg, #9096ff 1%, #ff7cee);
+}
+
+.body {
+	margin-left: 50rpx;
+
+	.line {
+		color: #666666;
+	}
+}
+
+.u-singleness-news {
+	.u-singleness-box {
+		.body {
+			overflow: hidden;
+			height: 60rpx; /* 与lineHeight一致 */
+
+			.line {
+				will-change: transform; /* 启用GPU加速 */
+				transform: translateZ(0);
+				backface-visibility: hidden;
+				perspective: 1000px;
+			}
+		}
+	}
+}
+
+
+.u-good-recommend {
+	width: 100%;
+	padding: 15rpx 30rpx;
+	display: flex;
+	font-weight: 600;
+	font-size: 30rpx;
+	
+	span {
+		display: block;
+		width: 52rpx;
+		height: 52rpx;
+		border-radius: 50%;
+		margin-right: 20rpx;
+		text-align: center;
+		
+		img {
+			width: 45rpx;
+			height: 45rpx;
+		}
+	}
+}
+
+.maoScroll-main {
+	margin-top: 10rpx;
+}
+
+.u-font-sm {
+	font-size: 28rpx;
+}
+
+.u-list-title {
+	width: 350rpx;
+}
+
+.u-red-wechat {
+	width: 200rpx;
+	height: 64rpx;
+	background: #9b6af1;
+	border-radius: 45rpx;
+	margin-top: 20rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	font-size: 30rpx;
+	font-weight: 600;
+	
+	i {
+		margin-right: 10rpx;
+	}
 }

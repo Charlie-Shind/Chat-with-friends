@@ -2,6 +2,9 @@
 @import "./libs/css/common.scss";
 @import "./libs/css/color.scss";
 
+// 引入阿里图标
+@import "https://at.alicdn.com/t/c/font_4922773_h63uj4mgbut.css?spm=a313x.manage_type_myprojects.i1.9.291a3a81FIitF6&file=font_4922773_h63uj4mgbut.css";
+
 // 非nvue的样式
 /* #ifndef APP-NVUE */
 @import "./libs/css/style.vue.scss";

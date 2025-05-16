@@ -786,6 +786,8 @@ export const archives = {
 			this.has_more = pageList.current_page < pageList.last_page;
 			this.archivesList = [...this.archivesList, ...pageList.data];
 			this.is_empty = !this.archivesList.length;
+			
+			console.log(this.archivesList)
 		},
 		//获取分类
 		getCategory() {

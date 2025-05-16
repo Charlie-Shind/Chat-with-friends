@@ -3,6 +3,11 @@
 		<!-- 顶部导航 -->
 		<fa-navbar title="详情" ref="navbar"></fa-navbar>
 		<!-- 内容 -->
+		<view class="u-flex u-flex-wrap u-p-l-30 u-p-r-30 u-p-t-30" v-if="archivesInfo.ispaid">
+			<view class="product-images" v-for="(item, index) in imagesList" :key="index">
+				<u-image width="100%" height="220" :src="item" @click="lookImage(index)"></u-image>
+			</view>
+		</view>
 		<view class="u-p-30 u-bg-white">
 			<view class="u-font-40" :style="[cmsTitleStyle(archivesInfo.style)]"><text v-text="archivesInfo.title"></text></view>
 			<view class="u-m-t-20 u-font-22 u-tips-color"><text v-text="archivesInfo.create_date"></text></view>
@@ -10,7 +15,7 @@
 				<view class="u-flex">
 					<view class="u-flex u-col-center u-m-r-30" v-if="archivesInfo.user" @click="toUser(archivesInfo.user_id)">
 						<u-avatar size="40" :src="archivesInfo.user.avatar"></u-avatar>
-						<view class="u-font-22 u-m-l-10 u-line-1" style="max-width: 70px;">{{ archivesInfo.user.nickname }}</view>
+						<view class="u-font-22 u-m-l-10 u-line-1" style="max-width: 70px">{{ archivesInfo.user.nickname }}</view>
 					</view>
 					<view class="">
 						<u-icon name="thumb-up-fill" color="#aaa" size="20"></u-icon>
@@ -47,11 +52,6 @@
 				</view>
 			</view>
 		</view>
-		<view class="u-flex u-flex-wrap u-p-l-30 u-p-r-30 u-p-t-30" v-if="archivesInfo.ispaid">
-			<view class="product-images" v-for="(item, index) in imagesList" :key="index">
-				<u-image width="100%" height="220" :src="item" @click="lookImage(index)"></u-image>
-			</view>
-		</view>
 		<view class="u-p-30 u-bg-white u-line-height">
 			<u-parse :html="archivesInfo.content" :tag-style="vuex_parse_style" :domain="vuex_config.upload ? vuex_config.upload.cdnurl : ''" @linkpress="navigate"></u-parse>
 		</view>
@@ -63,7 +63,14 @@
 			</view>
 			<view class="u-flex u-row-right">
 				<view class="">
-					<u-button type="primary" hover-class="none" :custom-style="{ backgroundColor: theme.bgColor, color: theme.color }" size="mini" shape="circle" @click="collection(id, 'archives')">
+					<u-button
+						type="primary"
+						hover-class="none"
+						:custom-style="{ backgroundColor: theme.bgColor, color: theme.color }"
+						size="mini"
+						shape="circle"
+						@click="collection(id, 'archives')"
+					>
 						<u-icon name="heart-fill"></u-icon>
 						<text class="u-p-l-5" v-text="`收藏`"></text>
 					</u-button>
@@ -77,12 +84,8 @@
 			</view>
 		</view>
 		<view class="u-border-top u-bg-white u-p-30 u-flex u-row-center" v-if="archivesInfo.price > 0 && !archivesInfo.ispaid">
-			<u-button hover-class="none" type="warning" size="medium" :custom-style="{ width: '60vw' }" v-if="!vuex_token" @click="goLogin">
-				请登录再进行付费
-			</u-button>
-			<u-button hover-class="none" type="warning" size="medium" :custom-style="{ width: '60vw' }" v-else @click="goPay">
-				立即付费阅读
-			</u-button>
+			<u-button hover-class="none" type="warning" size="medium" :custom-style="{ width: '60vw' }" v-if="!vuex_token" @click="goLogin">请登录再进行付费</u-button>
+			<u-button hover-class="none" type="warning" size="medium" :custom-style="{ width: '60vw' }" v-else @click="goPay">立即付费阅读</u-button>
 		</view>
 		<u-gap height="20" bg-color="#f4f6f8"></u-gap>
 		<view class="u-bg-white u-p-30" v-if="archivesInfo.iscomment">
@@ -91,10 +94,24 @@
 				<u-input v-model="content" type="textarea" placeholder="请输入评论内容" :border="false" />
 			</view>
 			<view class="u-flex u-row-center">
-				<u-button type="primary" hover-class="none" :custom-style="{ backgroundColor: theme.bgColor, color: theme.color, width: '60vw' }" size="medium" v-if="!vuex_token" @click="goLogin">
+				<u-button
+					type="primary"
+					hover-class="none"
+					:custom-style="{ backgroundColor: theme.bgColor, color: theme.color, width: '60vw' }"
+					size="medium"
+					v-if="!vuex_token"
+					@click="goLogin"
+				>
 					立即登录
 				</u-button>
-				<u-button type="primary" hover-class="none" :custom-style="{ backgroundColor: theme.bgColor, color: theme.color, width: '60vw' }" size="medium" v-else @click="submit">
+				<u-button
+					type="primary"
+					hover-class="none"
+					:custom-style="{ backgroundColor: theme.bgColor, color: theme.color, width: '60vw' }"
+					size="medium"
+					v-else
+					@click="submit"
+				>
 					立即评论
 				</u-button>
 			</view>
@@ -131,7 +148,16 @@
 			</view>
 		</view>
 		<!-- 支付 -->
-		<fa-payment ref="faPayment" source="archives" title="立即支付" :subtitle="archivesInfo.title" :params="{'id' : archivesInfo.id}" :money="archivesInfo.price" :vip="(archivesInfo.channel && archivesInfo.channel.vip) || 0" @paySuccess="paySuccess"></fa-payment>
+		<fa-payment
+			ref="faPayment"
+			source="archives"
+			title="立即支付"
+			:subtitle="archivesInfo.title"
+			:params="{ id: archivesInfo.id }"
+			:money="archivesInfo.price"
+			:vip="(archivesInfo.channel && archivesInfo.channel.vip) || 0"
+			@paySuccess="paySuccess"
+		></fa-payment>
 		<!-- #ifdef APP-PLUS -->
 		<view class="">
 			<fa-app-share ref="faShare" :title="archivesInfo.title" :summary="archivesInfo.title" :imageUrl="archivesInfo.image" :href="archivesInfo.fullurl"></fa-app-share>
@@ -145,249 +171,251 @@
 </template>
 
 <script>
-	import { vote } from '@/common/fa.mixin.js';
-	// #ifdef H5
-	import { weixinShare } from '@/common/fa.weixin.mixin.js';
-	// #endif
-	export default {
-		mixins: [
-			vote,
-			// #ifdef H5
-			weixinShare
+import { vote } from '@/common/fa.mixin.js';
+// #ifdef H5
+import { weixinShare } from '@/common/fa.weixin.mixin.js';
+// #endif
+export default {
+	mixins: [
+		vote,
+		// #ifdef H5
+		weixinShare
+		// #endif
+	],
+	onLoad(e) {
+		let query = e || {};
+		this.id = query.id || 0;
+		this.diyname = query.diyname || '';
+		this.from = query.from || '';
+		this.getArchivesDetail();
+	},
+	watch: {
+		content(newValue, oldValue) {
+			if (!newValue) {
+				this.pid = 0;
+			}
+		}
+	},
+	data() {
+		return {
+			id: 0,
+			diyname: '',
+			archivesInfo: {},
+			commentList: [],
+			imagesList: [],
+			content: '',
+			pid: 0,
+			from: '',
+			scrollTop: 0,
+			page: 1,
+			has_more: true
+		};
+	},
+	methods: {
+		getArchivesDetail: async function () {
+			let res = await this.$api.getArchivesDetail({
+				id: this.id,
+				diyname: this.diyname
+			});
+			if (!res.code) {
+				this.$u.toast(res.msg || '文档未找到');
+				setTimeout(() => {
+					this.$refs.navbar.goBack();
+				}, 1500);
+				return;
+			}
+			this.archivesInfo = res.data.archivesInfo || {};
+			this.commentList = res.data.commentList || [];
+			this.imagesList = res.data.archivesInfo.productdata;
+			// #ifdef MP-WEIXIN
+			this.$u.mpShare = {
+				title: this.archivesInfo.title,
+				imageUrl: this.archivesInfo.image,
+				path: '/pages/product/detail?id=' + this.id
+			};
 			// #endif
-		],
-		onLoad(e) {
-			let query = e || {};
-			this.id = query.id || 0;
-			this.diyname = query.diyname || '';
-			this.from = query.from || '';
-			this.getArchivesDetail();
-		},
-		watch: {
-			content(newValue, oldValue) {
-				if (!newValue) {
-					this.pid = 0;
-				}
+			uni.setNavigationBarTitle({
+				title: this.archivesInfo.title
+			});
+
+			// #ifdef H5
+			if (this.$util.isWeiXinBrowser()) {
+				this.wxShare({
+					title: this.archivesInfo.title,
+					desc: this.archivesInfo.description,
+					link: window.location.href,
+					img: this.archivesInfo.image
+				});
+			}
+			// #endif
+
+			//如果来源是openid则提交支付请求
+			if (this.from === 'openid') {
+				this.$nextTick(() => {
+					this.goPay();
+				});
 			}
 		},
-		data() {
-			return {
-				id: 0,
-				diyname: '',
-				archivesInfo: {},
-				commentList: [],
-				imagesList: [],
-				content: '',
-				pid: 0,
-				from: '',
-				scrollTop: 0,
-				page: 1,
-				has_more: true
-			};
-		},
-		methods: {
-			getArchivesDetail: async function() {
-				let res = await this.$api.getArchivesDetail({
-					id: this.id,
-					diyname: this.diyname
-				});
-				if (!res.code) {
-					this.$u.toast(res.msg || "文档未找到");
-					setTimeout(() => {
-						this.$refs.navbar.goBack();
-					}, 1500);
-					return;
-				}
-				this.archivesInfo = res.data.archivesInfo || {};
-				this.commentList = res.data.commentList || [];
-				this.imagesList = res.data.archivesInfo.productdata;
-				// #ifdef MP-WEIXIN
-				this.$u.mpShare = {
-					title: this.archivesInfo.title,
-					imageUrl: this.archivesInfo.image,
-					path: '/pages/product/detail?id=' + this.id
-				};
-				// #endif
-				uni.setNavigationBarTitle({
-					title: this.archivesInfo.title
-				});
-				
-				// #ifdef H5
-				if (this.$util.isWeiXinBrowser()) {
-					this.wxShare({
-						title: this.archivesInfo.title,
-						desc: this.archivesInfo.description,
-						link: window.location.href,
-						img: this.archivesInfo.image
-					});
-				}
-				// #endif
-				
-				//如果来源是openid则提交支付请求
-				if(this.from === 'openid'){
-					this.$nextTick(() => {
-						this.goPay();
-					});
-				}
-			},
-			goCommentIndex() {
-				this.$api.goCommentIndex({
+		goCommentIndex() {
+			this.$api
+				.goCommentIndex({
 					page: this.page,
 					aid: this.archivesInfo.id
-				}).then(res => {
+				})
+				.then((res) => {
 					if (res.code == 1) {
 						this.has_more = res.data.commentList.length > 0;
 						this.commentList = [...this.commentList, ...res.data.commentList];
 					}
 				});
-			},
-			paySuccess() {
-				this.getArchivesDetail();
-			},
-			toUser(user_id) {
-				this.goPage('/pages/user/user?user_id=' + user_id);
-			},
-			replay(item) {
-				if (!item.user) {
-					this.$u.toast('用户不存在');
-					return;
-				}
-				this.content = `@${item.user.nickname} `;
-				this.pid = item.id;
-			},
-			goTag(name) {
-				this.goPage('/pages/tag/tag?name=' + name);
-			},
-			submit: async function() {
-				if (!this.content) {
-					this.$u.toast('请输入评论内容！');
-					return;
-				}
-				let res = await this.$api.goCommentPost({
-					content: this.content,
-					aid: this.id,
-					pid: this.pid //回复的用户上一条ID
-				});
-				this.$u.toast(res.msg);
-				if (!res.code) {
-					return;
-				}
-				this.content = '';
-				if (res.data && res.data.comment) {
-					this.commentList = [res.data.comment, ...this.commentList];
-				}
-			},
-			//支付
-			goPay() {
-				this.$refs.faPayment.show();
-			},
-			goLogin() {
-				this.goPage('/pages/login/mobilelogin');
-			},
-			// #ifdef APP-PLUS
-			openShare() {
-				this.$refs.faShare.show();
-			}
-			// #endif
 		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
+		paySuccess() {
+			this.getArchivesDetail();
 		},
-		onReachBottom() {
-			if (this.archivesInfo && this.archivesInfo.iscomment && this.has_more) {
-				this.page += 1;
-				this.goCommentIndex();
+		toUser(user_id) {
+			this.goPage('/pages/user/user?user_id=' + user_id);
+		},
+		replay(item) {
+			if (!item.user) {
+				this.$u.toast('用户不存在');
+				return;
 			}
+			this.content = `@${item.user.nickname} `;
+			this.pid = item.id;
+		},
+		goTag(name) {
+			this.goPage('/pages/tag/tag?name=' + name);
+		},
+		submit: async function () {
+			if (!this.content) {
+				this.$u.toast('请输入评论内容！');
+				return;
+			}
+			let res = await this.$api.goCommentPost({
+				content: this.content,
+				aid: this.id,
+				pid: this.pid //回复的用户上一条ID
+			});
+			this.$u.toast(res.msg);
+			if (!res.code) {
+				return;
+			}
+			this.content = '';
+			if (res.data && res.data.comment) {
+				this.commentList = [res.data.comment, ...this.commentList];
+			}
+		},
+		//支付
+		goPay() {
+			this.$refs.faPayment.show();
+		},
+		goLogin() {
+			this.goPage('/pages/login/mobilelogin');
+		},
+		// #ifdef APP-PLUS
+		openShare() {
+			this.$refs.faShare.show();
 		}
-	};
+		// #endif
+	},
+	onPageScroll(e) {
+		this.scrollTop = e.scrollTop;
+	},
+	onReachBottom() {
+		if (this.archivesInfo && this.archivesInfo.iscomment && this.has_more) {
+			this.page += 1;
+			this.goCommentIndex();
+		}
+	}
+};
 </script>
 
 <style lang="scss">
-	page {
-		background-color: #f4f6f8;
-	}
+page {
+	background-color: #f4f6f8;
+}
 
-	.detail-tag {
-		color: #aaa;
-	}
+.detail-tag {
+	color: #aaa;
+}
 
-	.comment {
-		background-color: #ffffff;
-		display: flex;
-		padding: 30rpx 0;
+.comment {
+	background-color: #ffffff;
+	display: flex;
+	padding: 30rpx 0;
 
-		.left {
-			image {
-				width: 64rpx;
-				height: 64rpx;
-				border-radius: 50%;
-				background-color: #f2f2f2;
-			}
+	.left {
+		image {
+			width: 64rpx;
+			height: 64rpx;
+			border-radius: 50%;
+			background-color: #f2f2f2;
 		}
+	}
 
-		.right {
-			flex: 1;
-			padding-left: 20rpx;
+	.right {
+		flex: 1;
+		padding-left: 20rpx;
 
-			.top {
+		.top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 10rpx;
+
+			.replay {
 				display: flex;
-				justify-content: space-between;
 				align-items: center;
-				margin-bottom: 10rpx;
+				color: #9a9a9a;
+				font-size: 26rpx;
 
-				.replay {
-					display: flex;
-					align-items: center;
+				.opeate {
+					margin-right: 4rpx;
 					color: #9a9a9a;
-					font-size: 26rpx;
-
-					.opeate {
-						margin-right: 4rpx;
-						color: #9a9a9a;
-					}
-				}
-
-				.name {
-					max-width: 100rpx;
 				}
 			}
 
-			.content {
-				margin-bottom: 10rpx;
-				word-break: break-word;
+			.name {
+				max-width: 100rpx;
 			}
 		}
-	}
 
-	.comment:not(:last-child) {
-		border-bottom: 1px solid #eee;
+		.content {
+			margin-bottom: 10rpx;
+			word-break: break-word;
+		}
 	}
+}
 
-	.product-images {
-		width: 50%;
-		margin-bottom: 30rpx;
-	}
+.comment:not(:last-child) {
+	border-bottom: 1px solid #eee;
+}
 
-	.product-images:nth-child(2n) {
-		padding-left: 15rpx;
-	}
+.product-images {
+	width: 50%;
+	margin-bottom: 30rpx;
+}
 
-	.product-images:nth-child(2n + 1) {
-		padding-right: 15rpx;
-	}
+.product-images:nth-child(2n) {
+	padding-left: 15rpx;
+}
 
-	.share {
-		padding: 0;
-		margin: 0;
-		border: 0;
-		background-color: transparent;
-		line-height: inherit;
-		border-radius: 0;
-		font-size: inherit;
-		color: #999;
-	}
+.product-images:nth-child(2n + 1) {
+	padding-right: 15rpx;
+}
 
-	.share::after {
-		border: none;
-	}
+.share {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+	line-height: inherit;
+	border-radius: 0;
+	font-size: inherit;
+	color: #999;
+}
+
+.share::after {
+	border: none;
+}
 </style>
